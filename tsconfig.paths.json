@@ -4,12 +4,16 @@
       "paths": {
         "@Assets/*": ["src/assets/*"],
         "@Components/*": ["src/components/*"],
+        "@Containers/*": ["src/containers/*"],
         "@Pages/*": ["src/pages/*"],
         "@Layouts/*": ["src/layouts/*"],
         "@Routes/*": ["src/routes/*"],
         "@Styles/*": ["src/styles/*"],
         "@Utils/*": ["src/utils/*"],
-        "@Services/*": ["src/services/*"]
+        "@Types/*": ["src/types/*"],
+        "@Services/*": ["src/services/*"],
+        "@Context/*": ["src/context/*"]
+
       }
     }
   }

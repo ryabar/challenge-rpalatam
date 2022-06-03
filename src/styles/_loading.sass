@@ -1,0 +1,72 @@
+// LOADING BASIC
+
+$loading-radius: 50px
+$loading-margin: calc(-1 * #{$loading-radius} / 2)
+$loading-fontsize: 2rem
+$loading-padding: calc(#{$loading-radius} / 2.05 - #{$loading-fontsize} / 2.05)
+$loading-circle-width: 0.2rem
+$loading-color: red
+
+.loading,
+.loading:before
+    display: border-box
+    position: absolute
+    // left: 50%
+    // top: 50%
+    width: $loading-radius
+    height: $loading-radius
+    margin: $loading-margin
+
+.loading
+    font-size: $loading-fontsize
+    padding: $loading-padding 0 0 0
+    text-align: center
+
+.loading:before
+    content: ""
+    border-radius: 50%
+    animation: loading 1s linear infinite
+    box-sizing: border-box
+    border: $loading-circle-width solid
+    border-color: $loading-color transparent
+    animation: loading 1.5s linear infinite
+
+@keyframes loading
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(360deg)
+
+// LOADING DOTS
+
+.loading--dots
+    display: flex
+    justify-content: center
+    align-items: center
+
+.loading__dot
+    min-width: 8px
+    width: 8px
+    height: 8px
+    border-radius: 50%
+    background: #eee
+    margin: 2px
+
+.loading__dot--1,
+.loading__dot--2,
+.loading__dot--3
+    animation: loadingDots 1.4s infinite both
+
+.loading__dot--2
+    animation-delay: 0.2s
+
+.loading__dot--3
+    animation-delay: 0.4s
+
+@keyframes loadingDots
+    0%
+        background: #f7fafc
+    50%
+        background: #cbd5e0
+    100%
+        background: #f7fafc
