@@ -5,11 +5,11 @@ import Logo from "@Components/Logo";
 import Input from "@Components/Input";
 
 function Header() {
-  const { textSearch, updateTextSearch } = useContext(Context);
+  // const { textSearch, updateTextSearch } = useContext(Context);
 
   return (
     <div className="header">
-      {console.log("textSearch", textSearch)}
+      {/* {console.log("textSearch", textSearch)} */}
       <Logo />
       {/* <Input name="seach" placeholder="Buscar" /> */}
     </div>

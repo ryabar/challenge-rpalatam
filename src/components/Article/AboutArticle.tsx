@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import { IAboutArticle as AboutArticleProps } from "@Types/index";
 
-function AboutArticle() {
-  return (
-    <p className='article__about'>AboutArticle</p>
-  )
+function AboutArticle({ description }: AboutArticleProps) {
+  return <p className="article__about">{description}</p>;
 }
 
-export default AboutArticle
+export default AboutArticle;

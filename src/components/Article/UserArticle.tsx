@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import { IUserArticle as UserArticleProps } from "@Types/index";
 
-function UserArticle() {
-  return (
-    <span className='article__user'>UserArticle</span>
-  )
+function UserArticle({ user }: UserArticleProps) {
+  return <span className="article__user">{user}</span>;
 }
 
-export default UserArticle
+export default UserArticle;

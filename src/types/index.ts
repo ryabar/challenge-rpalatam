@@ -2,6 +2,18 @@ interface ILoading {
   type?: string;
 }
 
+interface ITitleArticle {
+  title: string;
+}
+
+interface IUserArticle {
+  user: string;
+}
+
+interface IAboutArticle {
+  description: string;
+}
+
 interface IListArticle {
   articles: IArticle[];
 }
@@ -19,4 +31,19 @@ interface IInput {
   value: string;
 }
 
-export { ILoading, IListArticle, IArticle, IInput };
+interface IButton{
+  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  text: string;
+  cssCustom?: string;
+}
+
+export {
+  ILoading,
+  IListArticle,
+  IArticle,
+  IInput,
+  ITitleArticle,
+  IUserArticle,
+  IAboutArticle,
+  IButton
+};

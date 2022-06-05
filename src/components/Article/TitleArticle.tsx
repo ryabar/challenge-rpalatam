@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import { ITitleArticle as TitleArticleProps } from "@Types/index";
 
-function TitleArticle() {
-  return (
-    <h2 className='article__title'>TitleArticle</h2>
-  )
+function TitleArticle({ title }: TitleArticleProps) {
+  return <h2 className="article__title">{title}</h2>;
 }
 
-export default TitleArticle
+export default TitleArticle;

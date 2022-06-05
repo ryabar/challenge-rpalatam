@@ -1,4 +1,4 @@
-import React, { ReactEventHandler } from "react";
+import React from "react";
 import { IInput as InputProps } from "@Types/index";
 
 function Input({ onChange, value, name, placeholder }: InputProps) {
