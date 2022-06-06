@@ -8,6 +8,7 @@
         "@Pages/*": ["src/pages/*"],
         "@Layouts/*": ["src/layouts/*"],
         "@Routes/*": ["src/routes/*"],
+        "@Hooks/*": ["src/hooks/*"],
         "@Styles/*": ["src/styles/*"],
         "@Utils/*": ["src/utils/*"],
         "@Types/*": ["src/types/*"],

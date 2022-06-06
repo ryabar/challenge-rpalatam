@@ -4,6 +4,7 @@ import { IInput as InputProps } from "@Types/index";
 function Input({ onChange, value, name, placeholder }: InputProps) {
   return (
     <input
+      className="input"
       type="text"
       onChange={onChange}
       value={value}
