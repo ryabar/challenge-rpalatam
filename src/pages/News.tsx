@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import Loading from "@Components/Loading";
+import Loading from "@Components/Loading";
 import Header from "@Containers/Header";
 import ListArticle from "@Components/ListArticle";
 import useInfiniteScroll from "@Hooks/useInfiniteScroll";
+import fetchArticles from "@Services/articles";
 
 function News() {
   const [valueSearch, setValueSearch] = useState("");
@@ -10,14 +11,7 @@ function News() {
   const [isFetching, setIsFetching] = useInfiniteScroll(getArticlesForScroll);
 
   function getArticlesForScroll() {
-    console.log("getArticlesForScroll");
-
     let user = Math.round((getArticlesInLocalStorage().length + 1) / 10) + 1;
-    console.log(
-      "getArticlesForScroll user: ",
-      getArticlesInLocalStorage().length + 1
-    );
-
     if (user >= 1 && user <= 10) getArticles(user);
   }
 
@@ -49,13 +43,6 @@ function News() {
     return articles ? articles : [];
   };
 
-  const fetchArticles = async (user: number) => {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/users/${user}/posts`
-    );
-    return await response.json();
-  };
-
   const getArticles = async (user: number) => {
     let articles = await getArticlesInLocalStorage();
     let articlesFetch = [];
@@ -81,8 +68,10 @@ function News() {
 
   return (
     <div className="news">
+      
       <Header onChange={handleChangeSearch} valueSearch={valueSearch} />
       <ListArticle articles={listArticles} />
+      {isFetching && <Loading type="dots" />}
     </div>
   );
 }

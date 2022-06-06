@@ -9,8 +9,6 @@ const useInfiniteScroll = (callback: any) => {
   }, []);
 
   useEffect(() => {
-    console.log("isFetching", isFetching);
-
     if (!isFetching) return;
     callback();
   }, [isFetching]);
@@ -21,8 +19,7 @@ const useInfiniteScroll = (callback: any) => {
     );
 
     if (
-      innerHeightAndScrollTop !== document.documentElement.offsetHeight ||
-      innerHeightAndScrollTop > document.documentElement.offsetHeight ||
+      document.documentElement.offsetHeight - innerHeightAndScrollTop >= 50 ||
       isFetching
     )
       return;

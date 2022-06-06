@@ -37,6 +37,11 @@ interface IButton{
   cssCustom?: string;
 }
 
+interface IHeader {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  valueSearch: string;
+}
+
 export {
   ILoading,
   IListArticle,
@@ -45,5 +50,6 @@ export {
   ITitleArticle,
   IUserArticle,
   IAboutArticle,
-  IButton
+  IButton,
+  IHeader
 };

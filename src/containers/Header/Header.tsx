@@ -1,9 +1,10 @@
 import React from "react";
+import { IHeader as HeaderProps } from "@Types/index";
 
 import Logo from "@Components/Logo";
 import Input from "@Components/Input";
 
-function Header({ onChange, valueSearch }: any) {
+function Header({ onChange, valueSearch }: HeaderProps) {
   return (
     <div className="header">
       <Logo />
