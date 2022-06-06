@@ -1,4 +1,7 @@
 # 📦 PRUEBA RPA LATAM - EL COMERCIO
+
+![reto técnico](https://i.imgur.com/kCC9BTB.png)
+
 ## 📝 Resumen
 
 Prueba técnica usando la librería React JS junto con Typescript
