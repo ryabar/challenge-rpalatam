@@ -9,7 +9,7 @@
     "dev": "webpack --mode development",
     "prod": "webpack --mode production",
     "start": "webpack serve --mode development --open",
-    "test:dev": "jest  --coverage --watchAll=true"
+    "test": "jest --coverage --watchAll=true --env=jest-environment-jsdom"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -30,6 +30,7 @@
     "file-loader": "^6.2.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
+    "msw": "^0.42.0",
     "react-test-renderer": "^18.1.0",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",
@@ -46,24 +47,5 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "^@Assets/(.+)$": "<rootDir>/src/assets/$1",
-      "^@Components/(.+)$": "<rootDir>/src/components/$1",
-      "^@Containers/(.+)$": "<rootDir>/src/containers/$1",
-      "^@Pages/(.+)$": "<rootDir>/src/pages/$1",
-      "^@Layouts/(.+)$": "<rootDir>/src/layouts/$1",
-      "^@Routes/(.+)$": "<rootDir>/src/routes/$1",
-      "^@Hooks/(.+)$": "<rootDir>/src/hooks/$1",
-      "^@Styles/(.+)$": "<rootDir>/src/styles/$1",
-      "^@Utils/(.+)$": "<rootDir>/src/utils/$1",
-      "^@Types/(.+)$": "<rootDir>/src/types/$1",
-      "^@Services/(.+)$": "<rootDir>/src/services/$1",
-      "^@Context/(.+)$": "<rootDir>/src/context/$1"
-    },
-    "setupFilesAfterEnv": [
-      "<rootDir>src/setupTests.ts"
-    ]
   }
 }

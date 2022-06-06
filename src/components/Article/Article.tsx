@@ -8,7 +8,7 @@ import Button from "@Components/Button";
 
 function Article({ title, description, user }: ArticleProps) {
   const handleClickReadMore = () => {
-    console.log("click en leer más");
+    console.log("click in read more");
   };
 
   return (
