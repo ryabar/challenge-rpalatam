@@ -3,7 +3,12 @@ import Loading from "@Components/Loading";
 import Header from "@Containers/Header";
 import ListArticle from "@Components/ListArticle";
 import useInfiniteScroll from "@Hooks/useInfiniteScroll";
-import fetchArticles from "@Services/articles";
+import {
+  searchArticles,
+  getArticlesInLocalStorage,
+  formatArticles,
+  getArticlesStorageAndFetch,
+} from "@Utils/index";
 
 function News() {
   const [valueSearch, setValueSearch] = useState("");
@@ -20,55 +25,25 @@ function News() {
   }, []);
 
   const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValueSearch(e.target.value);
+    const searchTerm = e.target.value;
+    setValueSearch(searchTerm);
 
-    if (e.target.value === "") {
+    if (searchTerm === "") {
       getArticles(1);
       return;
     }
 
-    const articles = searchArticles(e.target.value);
-    setListArticles(articles);
-  };
-
-  const searchArticles = (text: string) => {
-    let articles = listArticles.filter((article: any) =>
-      article.title.includes(text)
-    );
-    return articles;
-  };
-
-  const getArticlesInLocalStorage = () => {
-    const articles = JSON.parse(localStorage.getItem("articles"));
-    return articles ? articles : [];
+    setListArticles(searchArticles(getArticlesInLocalStorage(), searchTerm));
   };
 
   const getArticles = async (user: number) => {
-    let articles = await getArticlesInLocalStorage();
-    let articlesFetch = [];
-
-    if (articles.length < user * 10 - 1) {
-      articlesFetch = await fetchArticles(user);
-      localStorage.setItem(
-        "articles",
-        JSON.stringify([...articles, ...articlesFetch])
-      );
-    }
-
-    setListArticles(
-      [...articles, ...articlesFetch].map((article: any) => ({
-        title: article.title,
-        description: article.body,
-        user: `user ${article.userId}`,
-      }))
-    );
-
+    const articles = await getArticlesStorageAndFetch(user);
+    setListArticles(formatArticles(articles));
     setIsFetching(false);
   };
 
   return (
     <div className="news">
-      
       <Header onChange={handleChangeSearch} valueSearch={valueSearch} />
       <ListArticle articles={listArticles} />
       {isFetching && <Loading type="dots" />}
