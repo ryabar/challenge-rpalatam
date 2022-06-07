@@ -53,3 +53,8 @@ Prueba técnica usando la librería React JS junto con Typescript
   Paso 2: yarn start
 ```
 
+## 💻 Para ejecutar los test unitarios
+
+```
+  Comando: yarn test
+```
